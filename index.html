@@ -23,6 +23,18 @@
 				font-style: italic;
 				font-size: 16px;
 			}
+			.sup {
+				text-decoration: none;
+			}
+			hr {
+				margin: 2em 0em;
+			}
+			.footnotes div {
+				margin-bottom: 1em;
+			}
+			a {
+				color: rgb(0, 0, 238);
+			}
 		</style>
 		<link rel="icon" type="image/png" sizes="256x256" href="/favicon.png"/>
 
@@ -38,18 +50,45 @@
 	<body>
 		<h1>The Underlay</h1>
 		<div class="authors">Danny Hillis, SJ Klein, Travis Rich</div>
-		<p>The Underlay is a global, decentralized graph database of publicly available knowledge that will make the structured knowledge of humanity available for the creation of analysis and tools. The Underlay is decentralized and hosted by a network of cooperating institutions (MIT and Harvard initially) and individuals such that no single group can control the content. The creation of the Underlay is the first attempt to replicate the rich, diverse knowledge graphs owned by private organizations in a public, decentralized manner.</p>
+		<p>The Underlay is a global, decentralized graph database of public knowledge. It is decentralized, with initial hosts including MIT, Harvard, and individuals, such that no single group controls the content. This is the first attempt to replicate the richness of knowledge graphs owned by private organizations in a public, decentralized manner.</p>
  
 		<h2>Rationale</h2>
-		<p>Technology has vastly expanded the rate of knowledge creation and dissemination. That gives us access to more knowledge from more sources, but it also makes the job of discovering and assessing it more difficult. The prevalence of false beliefs, decisions based on bad or incomplete information, distrust in science and journalism, misinformation campaigns and deliberate fraud, provide evidence that our system for sharing and judging knowledge is no longer sufficient. Importantly, most knowledge aggregation tools are owned privately and not available for public use (e.g. Google Knowledge Graph, Wolfram Alpha, Web of Science). As machines become smarter, the creation of richer collections of machine-readable knowledge is inevitable. What is not inevitable is whether they will be proprietary assets of commercial enterprises or a public resource, freely available to all.</p>
+		<p>While knowledge production is accelerating, systems for sharing and assessing knowledge are falling behind<a class="sup" href="#fn1"><sup id="sup1">1</sup></a>. Powerful collections of machine-readable knowledge are growing in importance each year, but most are privately owned (e.g., Google’s <i>Knowledge Graph</i>, <i>Wolfram Alpha</i>, <i>Scopus</i>). The Underlay aims to secure such a collection as a public resource. It also gives chains of provenance a central place in its data model, to help tease out bias or error that can appear at different layers of assumption, synthesis, and evaluation.</p>
 
-		<h2>Technical Description</h2>
-		<p>The Underlay is not a storage of facts, but rather declarations of truth, along with citations of who made them and where. For example, it does not contain the assertion that “Plato was a student of Socrates”, but rather that “Plato was a student of Socrates, according to Prof. Meinwal’s article in Encyclopedia Britannica, published May 27, 1999.” It also includes other citations of other sources that state the same relationship. It does not store this information as English sentences, but in a language-independent machine-readable form that represents the relationships between the various entities involved: Plato, Socrates, Prof. Meinwal, Encyclopedia Britannica and the publication date. It will also store information about how these entities are related to other entities. Through such chains of relationships, even simple assertions are interconnected. The Underlay will at times record conflicting assertions, and then leave it to other processes to decide which source to trust. Most knowledge is uncontested, and the Underlay provides a place to find it, but it also provides a way to discover the assertions that are contested or contradictory, to weigh their credibility, and to judge their truth.</p>
+		<h2>Description</h2>
+		<p>The Underlay aggregates statements and reported observations, along with citations of who made and who published them. For example, it would not contain the bare assertion that "Sudan’s population was 39M in 2008", but rather that "Sudan’s population was 'provisionally' 39M in 2008, according to the UN’s statistics division in 2011<a class="sup" href="#fn2"><sup id="sup2">2</sup></a>, referencing Sudan’s national census, as reported by its Central Bureau of Statistics, and as contested by the Southern People's Liberation Movement.<a class="sup" href="#fn3"><sup id="sup3">3</sup></a>"  It would also include estimates from different sources and years. This information, stored in a language-independent and machine-readable form, represents relationships between these entities: Sudan, the UN, the Sudanese statistics bureau, the liberation movement, Sudan’s population and census, and the relevant publication dates.  The Underlay will also store information about how these statements were recorded.</p>
+		<p>While much knowledge is uncontested, the Underlay stores contested or contradictory statements, along with detailed context and chains of provenance. Evaluations of fidelity or accuracy can make use of this information, and can themselves be stored in other layers. The focus on provenance and iteration supports refinement, revision, and replication of observations. The structured granularity enables alignment of unrelated datasets, bulk analysis, and machine learning.</p>
 
 		<h2>Objective</h2>
-		<p>The Underlay and it’s team will build the protocols, instantiations, and governing rules that will enable a publicly-owned, decentralized knowledge graph. The Underlay is named as such because the specific pathway for filling the Underlay with content comes through the creation of targeted, value-adding ‘overlays’. An overlay is the presentation of some set of data that exists in the Underlay. One example overlay could look like Google Maps, where a diversity of information (restaurant locations, satellite imagery, map coordinates, etc) are fused into one highly-interactive interface. We currently seek funding partners to help us grow our capacity over the coming years as we create an Underlay consortium which will eventually lead the governance of the protocol and be funded through participating members.</p>
+		<p>The Underlay team is developing the protocols, first instances, and governing rules of this knowledge graph. Information will be added at first by building focused, interpretive overlays -- knowledge curated for a particular audience. Overlays could for instance be journals, maps, or timelines, incorporating many sources of more granular information into a single lens<a class="sup" href="#fn4"><sup id="sup4">4</sup></a>.</p>
+		<p>At first, every full node will maintain a copy of the Underlay, and copies will be stored on distributed filesystems.  We are seeking <a href="mailto:underlay@media.mit.edu">partners</a> and funders to help support the initial stage of this work, and plan to form a small foundation to oversee governance and protocol maintenance.</p>
+
+		<h2>Phase 1</h2>
+		<p>A proof-of-concept with two different communities of active users, supporting overlays for technical papers building on past research: a prior-art archive and a repository of academic papers<a class="sup" href="#fn5"><sup id="sup5">5</sup></a>. We are recruiting companies and universities to contribute collections for this work.  We will work with other protocol layers to define the initial federation model, and decentralize the underlay with IPFS. (Summer 2018)</p>
+
+		<h2>Phase 2</h2>
+		<p>A network of Underlay nodes at different institutions, demonstrating local vs global updating. An initial pipeline for extracting structured knowledge and sources from documents to populate lower layers. Tools to sync with existing structured repositories such as Wikidata, Freebase, and SHARE.  And tools to visualize what is in the Underlay and how it is being used.</p>
 
 		<h2>Join us</h2>
 		<p>Interested? <a href="mailto:underlay@media.mit.edu">Send us a friendly email!</a></p>
+
+		<hr></hr>
+		<div class="footnotes">
+			<div id="fn1">
+				<a class="sup" href="#sup1">[1]</a> The prevalence of false beliefs, incomplete information, distrust in science and journalism, misinformation campaigns and deliberate fraud, all point to breakdowns in these systems.
+			</div>
+			<div id="fn2">
+				<a class="sup" href="#sup2">[2]</a> <a href="https://unstats.un.org/unsd/demographic-social/products/vitstats/sets/Series_A_2011.pdf">https://unstats.un.org/unsd/demographic-social/products/vitstats/sets/Series_A_2011.pdf</a>
+			</div>
+			<div id="fn3">
+				<a class="sup" href="#sup3">[3]</a> <a href="https://www.news24.com/World/News/Discontent-over-Sudan-census-20090521">https://www.news24.com/World/News/Discontent-over-Sudan-census-20090521</a>
+			</div>
+			<div id="fn4">
+				<a class="sup" href="#sup4">[4]</a> E.g., experimental data, reference works, building locations, satellite imagery, business reviews, historical.
+			</div>
+			<div id="fn5">
+				<a class="sup" href="#sup5">[5]</a> Currently including Cisco’s prior art.
+			</div>
+		</div>
 	</body>
 </html>
