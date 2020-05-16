@@ -1,0 +1,48 @@
+@prefix rdf:   http://www.w3.org/1999/02/22-rdf-syntax-ns# .
+@prefix rdfs:  http://www.w3.org/2000/01/rdf-schema# .
+@prefix dc:    http://purl.org/dc/elements/1.1/ .
+@prefix owl:   http://www.w3.org/2002/07/owl# .
+@prefix prov:  http://www.w3.org/ns/prov#  .
+@prefix ul:    http://underlay.mit.edu/ns# .
+
+<http://www.underlay.org/ns#> rdf:type owl:Ontology ;
+    dc:title "Underlay Concepts (RDF)" ;
+    dc:date "2020-05-15" ;
+    dc:description "The RDF schema for Underlay vocabulary terms in the UL Namespace, as defined in the underlay architecture." .
+
+
+ul:Node rdf:type rdfs:Class ;
+    rdfs:comment "A node in the Underlay, identified by a PeerId URI." .
+
+ul:Message rdf:type rdfs:Class ;
+    rdfs:subClassOf prov:Collection ;
+    rdfs:comment "A generalized RDF dataset. Extends PROV Collections." .
+
+ul:Dataset rdf:type rdfs:Class ;
+    rdfs:subClassOf prov:Collection ;
+    rdfs:comment "A collection of ul:Message datasets. Identified by the hash of its normalized form." .
+
+ul:Graph rdf:type rdfs:Class ;
+    rdfs:subClassOf prov:Collection ;
+    rdfs:comment "An RDF graph. Provides a well-typed range for the ul:satisfies property." .
+
+ul:Query rdf:type rdfs:Class ;
+    rdfs:subClassOf prov:Collection ;
+    rdfs:comment "An RDF graph expressing a query in the Underlay." .
+
+
+
+ul:peer rdf:type rdfs:Property ;
+    rdfs:domain ul:Node ;
+    rdfs:range ul:Node ;
+    rdfs:comment "Relates a ul:Node to a single peer ul:Node" .
+
+ul:satisfies rdf:type rdfs:Property ;
+    rdfs:domain ul:Graph ;
+    rdfs:range ul:Query ;
+    rdfs:comment "Expresses resolution of a ul:Query by a ul:Graph." .
+
+ul:index rdf:type rdfs:Property ;
+    rdfs:domain ul:Query ;
+    rdfs:range rdf:Resource ;
+    rdfs:comment "Relates a ul:Query to the blank nodes over which it is indexed." .
